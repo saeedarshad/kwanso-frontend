@@ -1,0 +1,42 @@
+<div class="container mt-2">
+  <div>
+    <h1>Bulk Delete Tasks</h1>
+    <button *ngIf="tasks.length>0" class="btn btn-danger btn-sm btn-round" (click)="bulkDeleteTask()">Delete Selected
+      Tasks
+    </button>
+    <button *ngIf="tasks.length===0" class="btn btn-primary btn-sm btn-round" (click)="goToCreateTask()">Create Task
+    </button>
+    <button class="btn btn-primary btn-sm btn-round ml-1" (click)="goToTasksList()">Go To Tasks list
+    </button>
+  </div>
+  <div class="row">
+    <div *ngIf="showErrorMessage" class="col-sm-12 mt-2">
+      <span class="text-danger">Please select atleast on task to delete!</span>
+    </div>
+    <div *ngFor="let task of tasks" class="col-sm-3 mt-2">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <div class="row">
+            <div class="col-sm-10">
+              <h5>{{task.name}}</h5>
+            </div>
+            <div class="col-sm-2 mt-n3">
+              <form *ngIf="formGroup" [formGroup]="formGroup">
+                <dynamic-ng-bootstrap-form [group]="formGroup" [model]="getFormModel(task.id)">
+                </dynamic-ng-bootstrap-form>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">{{task.name}}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 mt-4">
+      <h4 *ngIf="tasks.length===0">There are no tasks to delete</h4>
+    </div>
+  </div>
+</div>
+
+
+

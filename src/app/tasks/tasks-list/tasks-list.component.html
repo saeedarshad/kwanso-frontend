@@ -1,0 +1,21 @@
+<div class="container mt-2">
+  <div>
+    <h1>Tasks List</h1>
+    <button class="btn btn-primary btn-sm btn-round" (click)="goToCreateTask()">Go to Create Task</button>
+    <button class="btn btn-primary btn-sm btn-round ml-1" (click)="goToBulkDeleteTask()">Go to Bulk Delete</button>
+  </div>
+  <div class="row">
+    <div *ngFor="let task of tasks" class="col-sm-3 mt-2">
+      <div class="card">
+        <div class="card-header bg-info text-white">{{task.name}}</div>
+        <div class="card-body">{{task.name}}</div>
+      </div>
+    </div>
+    <div class="col-sm-12 mt-4">
+      <h4 *ngIf="tasks.length===0">There is no task created</h4>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,14 @@
+<div class="container mt-2">
+  <div>
+    <h1>Create Task</h1>
+    <form *ngIf="formGroup" [formGroup]="formGroup">
+      <dynamic-ng-bootstrap-form [group]="formGroup" [model]="formModel">
+      </dynamic-ng-bootstrap-form>
+    </form>
+    <button class="btn btn-primary btn-sm btn-round" (click)="createTask(true)">Create Task & Redirect</button>
+    <button class="btn btn-info btn-sm btn-round ml-1" (click)="createTask()">Create Task & Stay</button>
+  </div>
+</div>
+
+
+
